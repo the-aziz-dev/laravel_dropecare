@@ -15,8 +15,9 @@ class SoilConditionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'temperature' => $this->temperature,
             'moisture' => $this->moisture,
+            'temperature' => $this->temperature,
+
         ];
     }
 }

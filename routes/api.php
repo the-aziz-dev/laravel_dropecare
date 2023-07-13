@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\DecisionTreeController;
 use App\Http\Controllers\SoilConditionController;
 use App\Http\Controllers\WateringCycleController;
 use App\Http\Controllers\WateringHistoryController;
@@ -27,6 +28,8 @@ Route::get('/soilCondition', [SoilConditionController::class, 'soilConditionToMo
 Route::get('/wateringHistory', [WateringHistoryController::class, 'index']);
 
 Route::post('/wateringCycle', [WateringCycleController::class, 'store']);
+
+Route::get('/superData', [DecisionTreeController::class, 'index']);
 
 
 

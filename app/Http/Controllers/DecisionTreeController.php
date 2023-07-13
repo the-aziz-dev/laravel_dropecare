@@ -10,9 +10,15 @@ use App\Utils\APIGrabber;
 use App\Utils\DecisionTree\DecisionTreeBrain;
 use App\Utils\TimeManager;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 
 class DecisionTreeController extends Controller
 {
+    public function index(): JsonResponse
+    {
+        return self::successResponse(200, DecisionTree::all());
+    }
+
     public static function storeWeatherData(): void
     {
         $apiGrabber = new APIGrabber();
@@ -35,6 +41,7 @@ class DecisionTreeController extends Controller
                 DecisionTree::query()->insert([
                     'date' => $lastDateValue,
                     'forecast' => $lastForecastValue,
+                    'hasWater' => 'no',
                     'temperature' => 0,
                     'moisture' => 0,
                     'decisionTreeResult' => 'non',
